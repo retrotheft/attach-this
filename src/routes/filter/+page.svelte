@@ -1,0 +1,22 @@
+<script lang="ts">
+   import { createFilter } from '$lib/dollar-stores/filterable.js'
+
+   const records = [
+      { name: "Alice", age: 32 },
+      { name: "Bob", age: 40 },
+      { name: "Charlie", age: 18 },
+      { name: "Dana", age: 21 },
+      { name: "Eddie", age: 27 }
+   ];
+
+   const filter = createFilter(records)
+</script>
+
+<input {...filter} name="name" type="text" />
+<input {...filter} name="age" type="number" />
+
+<ul>
+   {#each $filter as record}
+      <li>{record.name} is {record.age}</li>
+   {/each}
+</ul>
