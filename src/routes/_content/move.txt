@@ -1,0 +1,7 @@
+<script>
+   import { movable } from 'attach-this'
+</script>
+
+<div {...movable}>
+   Move Me!
+</div>

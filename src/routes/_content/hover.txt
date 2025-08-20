@@ -1,0 +1,7 @@
+<script>
+   import { hoverable } from 'attach-this'
+</script>
+
+<div {...hoverable}>
+   Mouse over me!
+</div>

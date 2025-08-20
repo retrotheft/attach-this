@@ -18,7 +18,7 @@ type DollarStoreAttachment = {
 } & StoreContract<Element | null>;
 
 
-function createHoverable(): DollarStoreAttachment {
+export function createHoverable(): DollarStoreAttachment {
   let focusedElement: Element | null = null;
   const subscribers = new Set<(value: Element | null) => void>();
 
@@ -72,4 +72,4 @@ function createHoverable(): DollarStoreAttachment {
   return spreadables;
 }
 
-export default createHoverable();
+export const hoverable = createHoverable();

@@ -1,40 +1,97 @@
 body {
-   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+   /*background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);*/
+   --background-one: #ff6b6b;
+   --background-two: #4ecdc4;
+   background-color: hsl(0, 1%, 1%);
+   background-image:
+      radial-gradient(circle at -40vw 1200px, oklch(from violet l c h / 0.15) 1%, transparent 40%),
+      radial-gradient(circle at 150vw -100px, oklch(from var(--background-two) l c h / 0.25) 1%, transparent 65%);
    color: #e0e0e0;
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
    line-height: 1.6;
    margin: 0;
    padding: 0;
-   overflow-x: hidden;
+   display: grid;
+   justify-content: center;
+   /*place-items: center;*/
+   align-content: start;
+   height: 100vh;
+   margin-top: 15vh;
 }
 
 * {
    box-sizing: border-box;
 }
 
-/* Global styles for the library documentation */
-.container {
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 0 2rem;
+.interactive {
+   height: 3lh;
+   width: 15ch;
+   border-radius: 1em;
+   color: white;
+   font-size: 0.9rem;
+   font-weight: bold;
+   padding: 0.5em 1em;
+   /*transition: width 0.3s ease;
+   transition-behavior: allow-discrete;*/
+   interpolate-size: allow-keywords;
+   transition: height 0.2s ease-in, width 0.2s ease-in;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+
+   &>h2 {
+      margin-right: auto;
+      margin-left: 0;
+      transition: margin 1s ease-in;
+   }
 }
 
-/* Code highlighting */
-.hljs-keyword { color: #ff79c6; }
-.hljs-string { color: #50fa7b; }
-.hljs-comment { color: #6272a4; }
-.hljs-function { color: #8be9fd; }
-.hljs-number { color: #bd93f9; }
-.hljs-tag { color: #ff6b6b; }
-.hljs-attr { color: #50fa7b; }
-
-/* Smooth scrolling */
-html {
-   scroll-behavior: smooth;
+.interactive#move {
+   background-color: oklch(60% 0.12 240);
 }
 
-/* Focus styles for accessibility */
-:focus-visible {
-   outline: 2px solid #4ecdc4;
-   outline-offset: 2px;
+.interactive#hover {
+   background-color: oklch(60% 0.12 0);
+   top: 6em;
+}
+
+.interactive#filter {
+   background-color: oklch(60% 0.12 50);
+   /*background-color: hsl(25, 55%, 45%);*/
+   top: 12em;
+}
+
+.interactive#replace {
+   background-color: oklch(60% 0.12 150);
+   top: 18em;
+}
+
+.interactive.active {
+   height: auto;
+   width: auto;
+
+   &>h2 {
+      margin-left: auto;
+      margin-right: auto;
+   }
+}
+
+.hoverable {
+   border: 1px solid transparent;
+}
+
+.hovering {
+   border-color: yellow;
+}
+
+h1 {
+   font-size: 4rem;
+   font-family: 'Mukta Mahee';
+   font-weight: 300;
+   margin-block: 0.1em;
+}
+
+h2 {
+   margin-block: 0.5em;
 }
