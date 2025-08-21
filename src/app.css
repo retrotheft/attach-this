@@ -12,20 +12,22 @@ body {
    margin: 0;
    padding: 0;
    display: grid;
-   justify-content: center;
-   /*place-items: center;*/
-   align-content: start;
+   grid-template-rows: auto 1fr auto;
+   align-items: start;
    height: 100vh;
-   margin-top: 15vh;
 }
 
 * {
    box-sizing: border-box;
 }
 
+main {
+   justify-self: center;
+}
+
 .interactive {
    height: 3lh;
-   width: 15ch;
+   width: 30ch;
    border-radius: 1em;
    color: white;
    font-size: 0.9rem;
@@ -69,7 +71,7 @@ body {
 
 .interactive.active {
    height: auto;
-   width: auto;
+   /*width: auto;*/
 
    &>h2 {
       margin-left: auto;
@@ -93,5 +95,91 @@ h1 {
 }
 
 h2 {
-   margin-block: 0.5em;
+   margin-block: auto;
+}
+
+/* Webkit browsers */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+
+header#page {
+   font-family: "Lato";
+   text-transform: lowercase;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 2em;
+   font-size: 1.2rem;
+   font-weight: 400;
+   margin-bottom: 12vh;
+
+   nav ul {
+      margin-block: 0;
+      display: flex;
+      align-items: start;
+      gap: 1rem;
+
+      li {
+         display: inline-flex;
+         align-items: center;
+
+      }
+
+   }
+
+   a:has(span) {
+      &:hover {
+         opacity: 0.75;
+      }
+   }
+
+   span#github-stars {
+      font-family: "Quicksand";
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      gap: 0.5em;
+   }
+
+   nav {
+      display: contents;
+   }
+
+   ul {
+      display: contents;
+      padding-inline-start: 0;
+   }
+
+   li {
+      list-style-type: none;
+   }
+
+   a, a:visited {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+   }
 }

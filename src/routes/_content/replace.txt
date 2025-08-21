@@ -1,1 +1,28 @@
-Not implemented yet
+<script lang="ts">
+   import { createReplacements } from "attach-this";
+
+   const replacements = {
+      en: {
+         welcome_text: "Welcome",
+         greeting_message: "How are you today?",
+      },
+      fr: {
+         welcome_text: "Bienvenue",
+         greeting_message: "Comment allez-vous aujourd'hui?",
+      }
+   }
+
+   const replace = createReplacements(lookupTable)
+
+   $replace = 'en'
+</script>
+
+<replace.text>
+   <h2>welcome_text</h2>
+   <p>greeting_message</p>
+</replace.text>
+
+<replace.text fr>
+   <h2>welcome_text</h2>
+   <p>greeting_message</p>
+</replace.text>

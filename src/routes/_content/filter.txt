@@ -1,5 +1,5 @@
 <script lang="ts">
-   import { createFilter } from '$lib/dollar-stores/filterable.js'
+   import { createFilter } from 'attach-this'
 
    const records = [
       { name: "Alice", age: 32 },
