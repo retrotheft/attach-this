@@ -76,7 +76,7 @@
 
    p {
       margin-top: 0;
-      margin-bottom: 3em;
+      margin-bottom: 2.75em;
       margin-left: 0.5ch;
       font-size: 1.2rem;
       font-weight: 500;

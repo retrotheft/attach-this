@@ -3,5 +3,5 @@
 </script>
 
 <div {...hoverable}>
-   Mouse over me!
+   <!-- get the active element with $hoverable -->
 </div>

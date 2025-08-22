@@ -1,7 +1,3 @@
-<script lang="ts">
-   import { movable } from "$lib/index.js";
-</script>
-
 <a href="https://github.com/epicenter-so/epicenter" target="_blank">
    <div>
       <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +25,7 @@
       height: calc(var(--scale) * 31);
       display: flex;
       position: absolute;
-      right: 60px;
+      right: 55px;
       bottom: 70px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
@@ -56,9 +52,12 @@
       letter-spacing: 0.07em;
       position: absolute;
       top: 105%;
+      left: 0;
+      right: 0;
       color: #eee;
       margin-top: 4px;
       font-style: italic;
+      text-align: center;
    }
 
    svg {

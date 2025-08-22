@@ -12,8 +12,8 @@
    <title>attach-this</title>
 </svelte:head>
 
-<header id="page">
-   <a href="/"><loc.letters>attach-this</loc.letters></a>
+<header class="page">
+   <span><a href="/">retrotheft</a> > <a href="/"><loc.letters>attach-this</loc.letters></a></span>
    <!-- <nav>
       <ul>
          <li>
@@ -38,3 +38,7 @@
 </header>
 
 {@render children?.()}
+
+<footer class="page">
+   <a href="/">about the author</a>
+</footer>

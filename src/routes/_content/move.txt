@@ -3,5 +3,5 @@
 </script>
 
 <div {...movable}>
-   Move Me!
+   <!-- $movable is an object containing meta-info and the element -->
 </div>
