@@ -1,6 +1,7 @@
 <script lang="ts">
    import '../app.css'
    import { type Snippet } from 'svelte'
+   import { loc } from './+page/Module.svelte';
 
    let { children, data }: { children: Snippet, data: { stars: number }} = $props()
 
@@ -12,7 +13,7 @@
 </svelte:head>
 
 <header id="page">
-   <a href="/">attach-this</a>
+   <a href="/"><loc.letters>attach-this</loc.letters></a>
    <!-- <nav>
       <ul>
          <li>

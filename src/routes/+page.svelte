@@ -1,15 +1,17 @@
 <script lang="ts">
-   import Move from "./_components/demo/Move.svelte";
-   import Hover from "./_components/demo/Hover.svelte";
-   import Filter from "./_components/demo/Filter.svelte";
-   import Replace from './_components/demo/Replace.svelte'
+   import FeatureTab from "./_components/demo/FeatureTab.svelte";
    import CodeViewer from "./_components/demo/CodeViewer.svelte";
+   import Replace from "./_components/demo/Replace.svelte";
+   import Filter from "./_components/demo/Filter.svelte";
+   import Hover from "./_components/demo/Hover.svelte";
+   import Move from "./_components/demo/Move.svelte";
    import move from "./_content/move.txt?raw";
    import hover from "./_content/hover.txt?raw";
    import filter from "./_content/filter.txt?raw";
-   import replace from './_content/replace.txt?raw'
    import svelte from "./_scripts/svelte.js";
-   import FeatureTab from "./_components/demo/FeatureTab.svelte";
+   import replace from "./_content/replace.txt?raw";
+   import { hoverable } from "$lib/index.js";
+   import { loc } from "./+page/Module.svelte";
 
    const codeLookup: Record<string, string> = {
       move,
@@ -23,7 +25,8 @@
 
    $effect(() => {
       const codeKey = $hoverable?.id ?? "help";
-      if ($hoverable && $hoverable.classList.contains('active')) code = codeLookup[codeKey]
+      if ($hoverable && $hoverable.classList.contains("active"))
+         code = codeLookup[codeKey];
    });
 
    // const code = $derived(
@@ -32,30 +35,35 @@
 
    hljs.registerLanguage("svelte", svelte);
 
-   import { hoverable } from "$lib/index.js";
+   // const loc = createReplaceStore(languages)
+   $loc = "en";
+
+   let test = $state(true)
 </script>
 
-<main>
-   <h1>attach-this</h1>
-   <p>ergonomic everyday helpers for Svelte</p>
-   <div id="code-viewer-container">
-      <CodeViewer {code} />
-      <div id="feature-tab-list">
-         <FeatureTab title="move">
-            <Move />
-         </FeatureTab>
-         <FeatureTab title="hover">
-            <Hover />
-         </FeatureTab>
-         <FeatureTab title="filter">
-            <Filter />
-         </FeatureTab>
-         <FeatureTab title="replace">
-            <Replace />
-         </FeatureTab>
+<loc.letters>
+   <main>
+      <h1>attach-this</h1>
+      <p>ergonomic everyday helpers for Svelte</p>
+      <div id="code-viewer-container">
+         <CodeViewer {code} />
+         <div id="feature-tab-list">
+            <FeatureTab title="move">
+               <Move />
+            </FeatureTab>
+            <FeatureTab title="hover">
+               <Hover />
+            </FeatureTab>
+            <FeatureTab title="filter">
+               <Filter />
+            </FeatureTab>
+            <FeatureTab title="replace">
+               <Replace />
+            </FeatureTab>
+         </div>
       </div>
-   </div>
-</main>
+   </main>
+</loc.letters>
 
 <style>
    main {

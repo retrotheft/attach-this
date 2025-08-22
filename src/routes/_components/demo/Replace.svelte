@@ -1,9 +1,19 @@
-<p>Traverses all child elements and replaces any text nodes that are present in the given lookup table. Can store the default setting and be given overrides for direct control.</p>
+<script lang="ts">
+   import { loc } from "../../+page/Module.svelte";
+</script>
+
+<p>Replaces all text using a given lookup table, and reacts dynamically to new changes.</p>
 
 <div>
-   <button>English</button>
-   <button>French</button>
+   <loc.letters en>
+      <button onclick={() => $loc = 'en'}>English</button>
+   </loc.letters>
+   <loc.letters gsa>
+      <button onclick={() => $loc = 'gsa'}>GSA</button>
+   </loc.letters>
 </div>
+
+<p>Works on individual letters, words or entire text nodes, and allows you to set boundaries and local overrides.</p>
 
 <style>
    div {

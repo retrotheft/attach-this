@@ -23,6 +23,7 @@ body {
 
 main {
    justify-self: center;
+   margin-left: 10ch;
 }
 
 .interactive {

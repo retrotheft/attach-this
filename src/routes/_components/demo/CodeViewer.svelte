@@ -4,7 +4,7 @@
    const hlCode = $derived(hljs.highlight(code, { language: 'svelte' }).value)
 </script>
 
-<code>
+<code class="localisation-boundary">
    <pre>{@html hlCode}</pre>
 </code>
 
