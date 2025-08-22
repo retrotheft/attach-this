@@ -90,16 +90,11 @@ export class ReplaceUtility {
    initialScanAndTranslate(): void {
       if (!this.container) return;
 
-      const start = performance.now();
       this.processNodes([this.container]);
-      const end = performance.now();
-      console.log(`${this.logPrefix} initial scan and translate completed in`, `${end - start}ms`);
    }
 
    retranslateAll(): void {
       if (!this.container) return;
-
-      const start = performance.now();
 
       const walkAndTranslate = (node: Node): void => {
          if (this.shouldSkipNode(node)) return;
@@ -119,26 +114,18 @@ export class ReplaceUtility {
       };
 
       walkAndTranslate(this.container);
-
-      const end = performance.now();
-      console.log(`${this.logPrefix} re-translated all text in`, `${end - start}ms`);
    }
 
    setupMutationObserver(): void {
       if (!this.container) return;
 
       this.mutationObserver = new MutationObserver((mutations) => {
-         const start = performance.now();
-
          for (const mutation of mutations) {
             if ((mutation.target as Element).classList.contains("localisation-boundary")) return
             if (mutation.type === 'childList') {
                this.processNodes(Array.from(mutation.addedNodes));
             }
          }
-
-         const end = performance.now();
-         console.log(`${this.logPrefix} processed mutations in`, `${end - start}ms`);
       });
 
       this.mutationObserver.observe(this.container, {
@@ -146,14 +133,12 @@ export class ReplaceUtility {
          subtree: true
       });
 
-      console.log(`${this.logPrefix} MutationObserver started`);
    }
 
    cleanupMutationObserver(): void {
       if (this.mutationObserver) {
          this.mutationObserver.disconnect();
          this.mutationObserver = null;
-         console.log(`${this.logPrefix} MutationObserver stopped`);
       }
    }
 }

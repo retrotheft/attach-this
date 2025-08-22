@@ -20,8 +20,6 @@
    let container: HTMLElement;
    let replaceUtility: ReplaceUtility | null = null;
 
-   console.log("Inside Replace Any", {...booleans}, lookupTable)
-
    // Store original text content for each text node - this persists across effect runs!
    const originalTextMap = new WeakMap<Node, string>();
 
