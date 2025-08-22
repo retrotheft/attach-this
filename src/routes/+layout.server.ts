@@ -24,6 +24,6 @@ import { type LoadEvent } from '@sveltejs/kit'
 
 export async function load() {
    return {
-      stars: 1
+      stars: ''
    }
 }

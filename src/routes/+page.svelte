@@ -12,6 +12,7 @@
    import replace from "./_content/replace.txt?raw";
    import { hoverable } from "$lib/index.js";
    import { loc } from "./+page/Module.svelte";
+   import Sponsored from './_components/Sponsored.svelte'
 
    const codeLookup: Record<string, string> = {
       move,
@@ -62,9 +63,11 @@
             </FeatureTab>
          </div>
       </div>
+
    </main>
 </loc.letters>
 
+         <Sponsored />
 <style>
    main {
       display: grid;

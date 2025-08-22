@@ -15,6 +15,7 @@ body {
    grid-template-rows: auto 1fr auto;
    align-items: start;
    height: 100vh;
+   overflow: hidden;
 }
 
 * {

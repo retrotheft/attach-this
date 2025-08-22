@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
    import { createReplacements } from "attach-this";
 
    const replacements = {
