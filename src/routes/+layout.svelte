@@ -1,5 +1,6 @@
 <script lang="ts">
    import '../app.css'
+   import './_assets/fonts/fonts.css'
    import { type Snippet } from 'svelte'
    import { loc } from './+page/Module.svelte';
 

@@ -12,7 +12,7 @@
    import replace from "./_content/replace.txt?raw";
    import { hoverable } from "$lib/index.js";
    import { loc } from "./+page/Module.svelte";
-   import Sponsored from './_components/Sponsored.svelte'
+   import Sponsored from "./_components/Sponsored.svelte";
 
    const codeLookup: Record<string, string> = {
       move,
@@ -39,35 +39,46 @@
    // const loc = createReplaceStore(languages)
    $loc = "en";
 
-   let test = $state(true)
+   let test = $state(true);
+
+   function isTouchDevice() {
+      return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+   }
 </script>
 
 <loc.letters>
    <main>
       <h1>attach-this</h1>
       <p>ergonomic everyday helpers for Svelte</p>
-      <div id="code-viewer-container">
-         <CodeViewer {code} />
-         <div id="feature-tab-list">
-            <FeatureTab title="move">
-               <Move />
-            </FeatureTab>
-            <FeatureTab title="hover">
-               <Hover />
-            </FeatureTab>
-            <FeatureTab title="filter">
-               <Filter />
-            </FeatureTab>
-            <FeatureTab title="replace">
-               <Replace />
-            </FeatureTab>
+      {#if isTouchDevice()}
+         <p>
+            <a href="https://github.com/retrotheft/attach-this"
+               >View on Github</a
+            >
+         </p>
+      {:else}
+         <div id="code-viewer-container">
+            <CodeViewer {code} />
+            <div id="feature-tab-list">
+               <FeatureTab title="move">
+                  <Move />
+               </FeatureTab>
+               <FeatureTab title="hover">
+                  <Hover />
+               </FeatureTab>
+               <FeatureTab title="filter">
+                  <Filter />
+               </FeatureTab>
+               <FeatureTab title="replace">
+                  <Replace />
+               </FeatureTab>
+            </div>
          </div>
-      </div>
-
+      {/if}
    </main>
 </loc.letters>
+<Sponsored />
 
-         <Sponsored />
 <style>
    main {
       display: grid;

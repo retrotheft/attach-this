@@ -1,11 +1,12 @@
 <script lang="ts">
+   import { loc } from "../../+page/Module.svelte";
    let { code }: { code: string } = $props()
 
    const hlCode = $derived(hljs.highlight(code, { language: 'svelte' }).value)
 </script>
 
-<code class="localisation-boundary">
-   <pre>{@html hlCode}</pre>
+<code>
+   <pre class="localisation-boundary">{@html hlCode}</pre>
 </code>
 
 <style>

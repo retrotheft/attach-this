@@ -41,7 +41,7 @@
       font-weight: 400;
       margin-bottom: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.06em;
    }
 
    div::after {

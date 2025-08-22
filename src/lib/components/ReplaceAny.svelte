@@ -20,6 +20,8 @@
    let container: HTMLElement;
    let replaceUtility: ReplaceUtility | null = null;
 
+   console.log("Inside Replace Any", {...booleans}, lookupTable)
+
    // Store original text content for each text node - this persists across effect runs!
    const originalTextMap = new WeakMap<Node, string>();
 
@@ -31,6 +33,8 @@
    // Set up utility and initial scan when container is available
    $effect(() => {
       if (!container) return;
+
+      console.log("Replace Any setup effect", {...booleans})
 
       replaceUtility = new ReplaceUtility({
          container,
@@ -55,6 +59,7 @@
    $effect(() => {
       // This effect depends on effectiveLocale
       effectiveLocale;
+      console.log("Replace Any re-translate effect", {...booleans})
 
       // Skip initial run (handled by the setup effect)
       if (!replaceUtility || !container) return;

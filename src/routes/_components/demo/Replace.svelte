@@ -9,7 +9,7 @@
       <button onclick={() => $loc = 'en'}>English</button>
    </loc.letters>
    <loc.letters gsa>
-      <button onclick={() => $loc = 'gsa'}>GSA</button>
+      <button onclick={() => $loc = 'gsa'}>gsa</button>
    </loc.letters>
 </div>
 

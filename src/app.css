@@ -1,3 +1,7 @@
+:root {
+   
+}
+
 body {
    /*background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);*/
    --background-one: #ff6b6b;
@@ -35,7 +39,7 @@ main {
    width: 30ch;
    border-radius: 1em;
    color: white;
-   font-family: 'Nunito', sans-serif;
+   font-family: 'Nunito Sans', sans-serif;
    font-size: 0.9rem;
    font-weight: bold;
    padding: 0.5em 1em;
@@ -212,5 +216,11 @@ footer.page {
       color: #aaa;
       text-decoration: none;
       font-size: 1rem;
+   }
+}
+
+@media (max-width: 768px) {
+   main {
+      margin-left: 1em;
    }
 }
