@@ -1,22 +1,29 @@
 <script lang="ts">
    import { movable } from "$lib/index.js";
 </script>
-<div>
-   <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <!-- Pure black background -->
-      <rect width="400" height="400" fill="#000000" />
-      <!-- Top-left circle (gray) - drawn first so it appears behind -->
-      <circle cx="170" cy="170" r="100" fill="#cccccc" opacity="1" />
-      <!-- Bottom-right circle (pure white) - drawn second so it appears in front -->
-      <circle cx="230" cy="230" r="100" fill="#ffffff" opacity="1" />
-   </svg>
-   <p>epicenter</p>
-</div>
+
+<a href="https://github.com/epicenter-so/epicenter" target="_blank">
+   <div>
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+         <!-- Pure black background -->
+         <rect width="400" height="400" fill="#000000" />
+         <!-- Top-left circle (gray) - drawn first so it appears behind -->
+         <circle cx="170" cy="170" r="100" fill="#cccccc" opacity="1" />
+         <!-- Bottom-right circle (pure white) - drawn second so it appears in front -->
+         <circle cx="230" cy="230" r="100" fill="#ffffff" opacity="1" />
+      </svg>
+      <p>epicenter</p>
+   </div>
+</a>
 
 <style>
+   a {
+      display: contents;
+   }
+
    div {
       --scale: 2px;
-      font-family: 'Manrope', sans-serif;
+      font-family: "Manrope", sans-serif;
       font-weight: 600;
       width: calc(var(--scale) * 88);
       height: calc(var(--scale) * 31);
@@ -25,6 +32,7 @@
       right: 60px;
       bottom: 70px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
    }
 
    div::before {
@@ -42,12 +50,12 @@
 
    div::after {
       content: "proud supporters of open source";
-      font-family: 'Lato', sans-serif;
+      font-family: "Lato", sans-serif;
       font-size: 0.7rem;
       font-weight: 400;
       letter-spacing: 0.07em;
       position: absolute;
-      top: 110%;
+      top: 105%;
       color: #eee;
       margin-top: 4px;
       font-style: italic;
