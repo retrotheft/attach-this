@@ -28,6 +28,7 @@
       height: 32rem;
       overflow-y: auto;
       animation: rotate-gradient 25s linear infinite;
+      margin-bottom: 1em;
    }
 
    @keyframes rotate-gradient {

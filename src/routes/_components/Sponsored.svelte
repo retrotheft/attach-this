@@ -24,9 +24,9 @@
       width: calc(var(--scale) * 88);
       height: calc(var(--scale) * 31);
       display: flex;
-      position: absolute;
-      right: 55px;
-      bottom: 70px;
+      position: fixed;
+      right: 2em;
+      bottom: 3.2em;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
    }
