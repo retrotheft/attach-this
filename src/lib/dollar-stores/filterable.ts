@@ -1,6 +1,6 @@
 import { createAttachmentKey } from "svelte/attachments";
 
-export function createFilter<T>(items: T[]) {
+export function createFilter<T extends Record<string, any>>(items: T[]) {
   const columnFilters = new Map<string, string>();
   const subscribers = new Set<(value: T[]) => void>();
 
