@@ -1,5 +1,5 @@
 <script>
-   import { createReplacements } from "attach-this";
+   import { createReplaceStore } from "attach-this";
 
    const replacements = {
       en: {
