@@ -41,16 +41,14 @@
 
    let test = $state(true);
 
-   function isTouchDevice() {
-      return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-   }
+   const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0
 </script>
 
 <loc.letters>
-   <main>
+   <main class:mobile={isTouchDevice}>
       <h1>attach-this</h1>
       <p>ergonomic everyday helpers for Svelte</p>
-      {#if isTouchDevice()}
+      {#if isTouchDevice}
          <p>
             <a href="https://github.com/retrotheft/attach-this"
                >View on Github</a

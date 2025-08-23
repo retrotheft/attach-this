@@ -67,6 +67,6 @@
    });
 </script>
 
-<div bind:this={container} class="localisation-boundary">
+<div bind:this={container} class="localisation-boundary" style="display: contents;">
    {@render children()}
 </div>

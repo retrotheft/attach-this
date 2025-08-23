@@ -29,6 +29,11 @@ main {
    margin-left: 10ch;
 }
 
+main.mobile {
+   justify-self: start;
+   /*margin-left: 1em;*/
+}
+
 a, a:visited {
    color: white;
    text-decoration: none;
