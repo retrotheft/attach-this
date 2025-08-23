@@ -186,7 +186,7 @@ header.page {
    }
 
    span#github-stars {
-      font-family: "Quicksand";
+      font-family: "Quicksand", sans-serif;
       font-size: 1rem;
       font-weight: 600;
       display: inline-flex;
