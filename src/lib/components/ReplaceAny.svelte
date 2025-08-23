@@ -32,8 +32,6 @@
    $effect(() => {
       if (!container) return;
 
-      console.log("Replace Any setup effect", {...booleans})
-
       replaceUtility = new ReplaceUtility({
          container,
          lookupTable,
@@ -57,7 +55,6 @@
    $effect(() => {
       // This effect depends on effectiveLocale
       effectiveLocale;
-      console.log("Replace Any re-translate effect", {...booleans})
 
       // Skip initial run (handled by the setup effect)
       if (!replaceUtility || !container) return;
