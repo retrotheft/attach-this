@@ -7,7 +7,7 @@ interface StoreContract<T> {
 }
 
 type MovableState = {
-   activeElement: Element;
+   element: Element;
    x: number;
    y: number;
 } | null;
@@ -24,10 +24,10 @@ type DollarStoreAttachment = {
 export function createMovable(): DollarStoreAttachment {
    // Internal z-index management (Window.svelte approach)
    let elements: Element[] = [];
-   
+
    // Store state - null when nothing active
    let storeState: MovableState = null;
-   
+
    const subscribers = new Set<(value: MovableState) => void>();
 
    function notifySubscribers(): void {
@@ -37,7 +37,7 @@ export function createMovable(): DollarStoreAttachment {
    function moveToBack(element: Element): void {
       elements = elements.filter(el => el !== element);
       elements.push(element);
-      
+
       // Update z-index styles
       elements.forEach((el, index) => {
          (el as HTMLElement).style.zIndex = (index + 100).toString();
@@ -64,7 +64,7 @@ export function createMovable(): DollarStoreAttachment {
 
       const element = event.currentTarget;
       const computedStyle = getComputedStyle(element as HTMLElement);
-      
+
       // Bring to front
       moveToBack(element);
 
@@ -76,7 +76,7 @@ export function createMovable(): DollarStoreAttachment {
 
       // Set active state
       storeState = {
-         activeElement: element,
+         element,
          x: elementStartX,
          y: elementStartY
       };
@@ -96,7 +96,7 @@ export function createMovable(): DollarStoreAttachment {
 
          // Update store state
          storeState = {
-            activeElement: element,
+            element,
             x: newX,
             y: newY
          };
@@ -118,12 +118,12 @@ export function createMovable(): DollarStoreAttachment {
 
    function setupMovable(element: Element): (() => void) {
       const htmlElement = element as HTMLElement;
-      
+
       // Set essential movable styles
       htmlElement.style.cursor = 'move';
       htmlElement.style.userSelect = 'none';
       htmlElement.style.position = 'absolute';
-      
+
       // Set initial position if not already set
       if (!htmlElement.style.left && !htmlElement.style.top) {
          const rect = htmlElement.getBoundingClientRect();
@@ -132,12 +132,12 @@ export function createMovable(): DollarStoreAttachment {
          htmlElement.style.left = `${rect.left - parentRect.left}px`;
          htmlElement.style.top = `${rect.top - parentRect.top}px`;
       }
-      
+
       addElement(element);
-      
+
       return () => {
          removeElement(element);
-         if (storeState?.activeElement === element) {
+         if (storeState?.element === element) {
             storeState = null;
             notifySubscribers();
          }

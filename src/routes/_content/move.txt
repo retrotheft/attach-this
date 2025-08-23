@@ -3,5 +3,5 @@
 </script>
 
 <div {...movable}>
-   <!-- $movable is an object containing meta-info and the element -->
+   <!-- $movable contains either null or { element, x, y } -->
 </div>
