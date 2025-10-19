@@ -1,0 +1,42 @@
+<script>
+   import { validate } from "attach-this"
+   import { z } from 'zod' // any StandardSchemaV1 will do!
+
+   const personSchema = z.object({
+      name: z.string().min(1, "Name cannot be empty").trim(),
+      age: z.number()
+         .int()
+         .min(0, "Age cannot be negative")
+         .max(150, "Age cannot exceed 150")
+   })
+
+   const data = $state({
+      name: '',
+      age: 0
+   })
+
+   const validator = validate(personSchema)
+</script>
+
+<form {@attach validator(data)} {onsubmit}>
+   <div>
+      <label for="name">Name</label>
+      <input name="name" type="text" bind:value={data.name} />
+   </div>
+   <div>
+      <label for="age">Age</label>
+      <input name="age" type="number" bind:value={data.age} />
+   </div>
+   <button type="submit">Add Person</button>
+</form>
+
+<style>
+   /* access error messages on pseudo-elements */
+   div[data-error]::before, div[data-error]::after {
+      content: attr(data-error);
+   }
+
+   /* you may need to wrap those selectors
+      with :global() since they may not be
+      present at compile time. */
+</style>

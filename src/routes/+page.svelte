@@ -5,11 +5,13 @@
    import Filter from "./_components/demo/Filter.svelte";
    import Hover from "./_components/demo/Hover.svelte";
    import Move from "./_components/demo/Move.svelte";
+   import Validate from './_components/demo/Validate.svelte'
    import move from "./_content/move.txt?raw";
    import hover from "./_content/hover.txt?raw";
    import filter from "./_content/filter.txt?raw";
    import svelte from "./_scripts/svelte.js";
    import replace from "./_content/replace.txt?raw";
+   import validate from './_content/validate.txt?raw'
    import { hoverable } from "$lib/index.js";
    import { loc } from "./+page/Module.svelte";
    import Sponsored from "./_components/Sponsored.svelte";
@@ -19,6 +21,7 @@
       hover,
       filter,
       replace,
+      validate,
       help: "To begin, pull out a feature tab!",
    };
 
@@ -69,6 +72,9 @@
                </FeatureTab>
                <FeatureTab title="replace">
                   <Replace />
+               </FeatureTab>
+               <FeatureTab title="validate">
+                  <Validate />
                </FeatureTab>
             </div>
          </div>

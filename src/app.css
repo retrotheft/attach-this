@@ -70,6 +70,14 @@ a, a:visited {
    }
 }
 
+/*.interactive:not(.active) {
+   transition: transform 0.1s linear;
+
+   &.hovering {
+      transform: translateX(-2ch);
+   }
+}*/
+
 .interactive#move {
    background-color: oklch(60% 0.12 240);
    top: var(--feature-top);
@@ -89,6 +97,11 @@ a, a:visited {
 .interactive#replace {
    background-color: oklch(60% 0.12 150);
    top: calc(var(--feature-top) + 3 * var(--feature-gap));
+}
+
+.interactive#validate {
+   background-color: oklch(60% 0.12 300);
+   top: calc(var(--feature-top) + 4 * var(--feature-gap));
 }
 
 .interactive.active {
