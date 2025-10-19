@@ -22,7 +22,6 @@
       if (form.dataset.valid === 'true') {
          console.log("Success:", $state.snapshot(data))
       }
-      // if (event.currentTarget.getAttribute('data-valid') === 'false') return
    }
 </script>
 
@@ -39,10 +38,6 @@
 </form>
 
 <style>
-   p {
-      color: lightgreen;
-   }
-
    div {
       display: grid;
       gap: 0.25em;

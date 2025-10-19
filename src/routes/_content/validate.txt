@@ -19,6 +19,8 @@
 </script>
 
 <form {@attach validator(data)} {onsubmit}>
+   <!-- inputs must be wrapped in divs because
+        <input> can't have pseudo-elements -->
    <div>
       <label for="name">Name</label>
       <input name="name" type="text" bind:value={data.name} />
@@ -36,7 +38,11 @@
       content: attr(data-error);
    }
 
-   /* you may need to wrap those selectors
-      with :global() since they may not be
-      present at compile time. */
+   /*
+   you may need to wrap those selectors
+   with :global() since they won't be
+   present at compile time.
+
+   Alternatively, put the css in an external file.
+   */
 </style>
