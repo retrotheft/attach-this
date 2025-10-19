@@ -89,6 +89,63 @@ Filters a given array using inputs whose name match the array elements' keys. Fi
 </ul>
 ```
 
+## Validate
+
+Validates any `StandardSchemaV1` schema.
+
+### Usage
+
+```svelte
+<script>
+   import { validate } from "attach-this"
+   import { z } from 'zod' // any StandardSchemaV1 will do!
+
+   const personSchema = z.object({
+      name: z.string().min(1, "Name cannot be empty").trim(),
+      age: z.number()
+         .int()
+         .min(0, "Age cannot be negative")
+         .max(150, "Age cannot exceed 150")
+   })
+
+   const data = $state({
+      name: '',
+      age: 0
+   })
+
+   const validator = validate(personSchema)
+</script>
+
+<form {@attach validator(data)} {onsubmit}>
+   <!-- inputs must be wrapped in divs because
+        <input> can't have pseudo-elements -->
+   <div>
+      <label for="name">Name</label>
+      <input name="name" type="text" bind:value={data.name} />
+   </div>
+   <div>
+      <label for="age">Age</label>
+      <input name="age" type="number" bind:value={data.age} />
+   </div>
+   <button type="submit">Add Person</button>
+</form>
+
+<style>
+   /* access error messages on pseudo-elements */
+   div[data-error]::before, div[data-error]::after {
+      content: attr(data-error);
+   }
+
+   /*
+   you may need to wrap those selectors
+   with :global() since they won't be
+   present at compile time.
+
+   Alternatively, put the css in an external file.
+   */
+</style>
+```
+
 ## Replace
 
 Dynamic text replacement system that can swap out content based on lookup tables and locales. Can replace by letter, word or text node.
