@@ -34,7 +34,7 @@
       <label for="age">Age</label>
       <input name="age" type="number" bind:value={data.age} onmousedown={(e) => e.stopPropagation()} />
    </div>
-   <button type="submit">Add Person</button>
+   <!-- <button type="submit">Add Person</button> -->
 </form>
 
 <style>
